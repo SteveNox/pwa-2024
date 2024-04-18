@@ -1,0 +1,23 @@
+{
+  "name": "pwa-2024",
+  "version": "1.0.0",
+  "description": "pwa course 2024 wifi salzburg",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -p 8000 -c-1",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SteveNox/pwa-2024.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SteveNox/pwa-2024/issues"
+  },
+  "homepage": "https://github.com/SteveNox/pwa-2024#readme",
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}
