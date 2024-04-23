@@ -13,6 +13,55 @@ if('serviceWorker' in navigator) {
         });
 };
 
+var raceCondition = false;
+
+//cache first and update with network if possible whichever is faster
+fetch('https://httpbin.org/get')
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        raceCondition = true;
+        console.log('from web', data);
+    });
+
+if ('caches' in window) {
+    caches.match('https://httpbin.org/get')
+        .then(function(response) {
+            if(response) {
+                return response.json();
+            }
+        })
+        .then(function(data) {
+            if(!raceCondition) {
+                console.log('from cache', data);
+            }
+        })
+}
+
+
+// if('caches' in window) {
+//     fetch('https://httpbin.org/get')
+//     .then(function(response) {
+//         return response.json();
+//     })
+//     .then(function(data) {
+//         console.log('from web', data);
+//         caches.open('immutable')
+//             .then(function(immutableCache) {
+//                 immutableCache.put('https://httpbin.org/get', data);
+//             })        
+//     });
+// }
+// fetch('https://httpbin.org/get')
+//     .then(function(response) {
+//         return response.json();
+//     })
+//     .then(function(data) {
+//         raceCondition = true;
+//         console.log('from web', data);
+//     });
+
 // console.log("1 BEFORE TIMEOUT!")
 // setTimeout(function() {
 //     console.log("2 TIMEOUT COMPLETE")
