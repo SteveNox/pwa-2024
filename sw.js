@@ -1,4 +1,7 @@
-const cache_version = '-v19';
+importScripts('/idb.js');
+importScripts('/indexedDbHelpers.js');
+
+const cache_version = '-v20';
 const staticCacheName = 'static' + cache_version;
 const dynamicCacheName = 'dynamic' + cache_version;
 
@@ -105,13 +108,23 @@ self.addEventListener('activate', function(event) {
 //cache then network  and race condition
 self.addEventListener('fetch', function(event) {
         console.log('[SW]: Service worker fetching...', event);
-        if(event.request.url.indexOf('https://httpbin.org/get') > -1) {
+        if(event.request.url.indexOf('http://192.168.1.194:5000/weatherforecast') > -1) {
             event.respondWith(
                 caches.open(dynamicCacheName)
                     .then(function(dynamicCache) {
                         return fetch(event.request)
                             .then(function(responseFromInternet) {
-                                dynamicCache.put(event.request.url, responseFromInternet.clone());
+                                var clonedResponse = responseFromInternet.clone();
+                                //dynamicCache.put(event.request.url, responseFromInternet.clone());
+                                clearAllData('apiData')
+                                    .then(function() {
+                                        return clonedResponse.json();
+                                    })
+                                    .then(function(data) { 
+                                        for (var key in data) {
+                                            writeData('apiData', data[key]);
+                                        }
+                                    });
                                 return responseFromInternet;
                             })
                     })

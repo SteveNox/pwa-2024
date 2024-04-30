@@ -8,7 +8,65 @@
 </head>
 <body>
     <h1>Hello world!!!!</h1>
+    <div id="data-display"></div>
     <script src="/app.js"></script>
+    <script src="/idb.js"></script>
+    <script src="/indexedDbHelpers.js"></script>
     <a href="uncached.html">Impressum</a>
 </body>
 </html>
+<script>
+    async function fetchWeatherData() {
+        let raceCondition = false;
+        let data;
+
+        const idbData = readAllData('apiData')
+            .then(function(data) {
+                if (!raceCondition) {
+                    return data;
+                }
+            });
+
+
+        // if ('caches' in window) {
+        //     data = await caches.match('http://192.168.1.194:5000/weatherforecast')
+        //     .then(function(response) {
+        //         if (response) {
+        //             return response.json();
+        //         }
+        //     })
+        //     .then(function(cachedData) {
+        //         if (!raceCondition) {
+        //             return cachedData;
+        //         }
+        //     })
+        // }
+
+        console.log('from idb', data);
+        const dataElement = document.querySelector('#data-display');
+        dataElement.textContent = data;
+
+        data = await fetch('http://192.168.1.194:5000/weatherforecast')
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(fetchedData) {
+                raceCondition = true;
+                return fetchedData;
+            }
+        );
+        console.log('from api', data);
+        dataElement.textContent = JSON.stringify(data);
+    };
+
+    fetchWeatherData();
+
+    const idbData = readAllData('apiData')
+    .then(function(data) {
+        console.log('from idb', data);
+        return data;
+    });
+
+    writeData('myData', {name: 'stefan', message: 'hello world'});
+    deleteItemFromData('myData', 'stefan');
+</script>
