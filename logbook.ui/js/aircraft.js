@@ -8,28 +8,30 @@ class aircraftPage {
             if (event.data.action === 'sync-complete') {
               // Repaint the page here
               console.log('Data from network in event:', event.data.data);
-              this.setWaitIndicator(true);
+              this.showWaitIndicator(true);
               this.init();
             }
           }.bind(this));
         });
     }
 
-    setWaitIndicator(value) {
-        this.waitIndicator = value;
-        document.getElementById('waitIndicator').hidden=value;
+    showWaitIndicator(value) {
+        this.waitIndicator = !value;
+        document.getElementById('waitIndicator').hidden=!value;
     };
 
     init() {
       try {
-        this.configurePushsubscription();
+
+        var networkDataReceived = false;
+
         document.getElementById('aircraftForm').reset();
-        this.setWaitIndicator(false);
+        this.showWaitIndicator(true);
         // Load from cache first
         if ('indexedDB' in window) {
           readAllData('aircraft-cache')
             .then(data => {
-              if (!this.aircraft.length) { // If network data hasn't already updated the display
+              if (!networkDataReceived) { // If network data hasn't already updated the display
                 console.log('From cache', data);
                 this.aircraft = data;
                 this.render();
@@ -51,7 +53,7 @@ class aircraftPage {
         console.error('Failed to initialize:', error);
       } 
       finally {
-        this.setWaitIndicator(true);
+        this.showWaitIndicator(false);
       }
     }
 
@@ -75,7 +77,7 @@ class aircraftPage {
     }
 
     async post(event) {
-        this.setWaitIndicator(false);
+        this.showWaitIndicator(true);
         event.preventDefault();
         
         const formData = {
@@ -99,7 +101,7 @@ class aircraftPage {
                   console.log(err);
                 }).finally(()=> {
 
-                  this.setWaitIndicator(true);
+                  this.showWaitIndicator(false);
                 })
             })
         } else {
@@ -123,13 +125,13 @@ class aircraftPage {
             } catch (err) {
               console.log(err.message);
             } finally {
-              this.setWaitIndicator(true);
+              this.showWaitIndicator(false);
             }
         } 
     }
 
     async edit(id) {
-        this.setWaitIndicator(false);
+        this.showWaitIndicator(true);
           try {
             const res = await fetch(
               'http://localhost:5054/aircraft/' + id,
@@ -149,12 +151,12 @@ class aircraftPage {
           } catch (err) {
             console.log(err.message);
           } finally {
-            this.setWaitIndicator(true);
+            this.showWaitIndicator(false);
           }
     }
 
     async delete(id) {
-      this.setWaitIndicator(false);
+      this.showWaitIndicator(true);
 
       if('serviceWorker' in navigator && 'SyncManager' in window) {
         navigator.serviceWorker.ready
@@ -172,7 +174,7 @@ class aircraftPage {
                 .catch(function(err) {
                   console.log(err);
                 }).finally(()=> {
-                  this.setWaitIndicator(true);
+                  this.showWaitIndicator(false);
                   this.init();
                 }) 
               });
@@ -192,7 +194,7 @@ class aircraftPage {
         } catch (err) {
           console.log(err.message);
         } finally {
-          this.setWaitIndicator(true);
+          this.showWaitIndicator(false);
         }
     }
   }
@@ -203,6 +205,7 @@ class aircraftPage {
         console.log('No notification permission granted!');
       } else {
         this.displayConfirmNotification();
+        this.configurePushsubscription();
       }
     });
   }
@@ -261,19 +264,18 @@ class aircraftPage {
       })
       .then(function(subscription) {
         if (subscription == undefined) {
-          var vapidPublicKey = 'BFydnieMRWAisvSSBDUp67i9atCoofeq10xCjaNgypSi6in4-ne9vtOll3pjQHh66ycOY8TsN3Vcgh9L_wdI3qk';
+          var vapidPublicKey = 'BOrZCYyuGfkBSMr1PKzYi-3tHyY-6U9YpV8XlXKpSLDDdk7hsPeKQye6hgtFi_LuyoXpmcUaZsINQ-I8FJqlhj0';
           var convertedVapidPublicKey = urlBase64ToUint8Array(vapidPublicKey);
 
           swRegistration.pushManager.subscribe({
             userVisibleOnly: true,
             applicationServerKey: convertedVapidPublicKey
+          }).then(function(newSubscription) {
+            console.log(newSubscription);
           });
         } else {
           //use existing subscription
         }
-      })
-      .then(function(newSubscription) {
-       console.log(newSubscription);  
       });
     };
-  }
+}
