@@ -1,0 +1,137 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\Repos\\nakedbyte\\samples\\pwa-samples\\logbook.api\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{14ED0C7B-05ED-41BC-A829-C10E5EF924F1}|Logbook.API\\Logbook.API.csproj|f:\\repos\\nakedbyte\\samples\\pwa-samples\\logbook.api\\logbook.api\\controllers\\aircraftcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{14ED0C7B-05ED-41BC-A829-C10E5EF924F1}|Logbook.API\\Logbook.API.csproj|solutionrelative:logbook.api\\controllers\\aircraftcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{14ED0C7B-05ED-41BC-A829-C10E5EF924F1}|Logbook.API\\Logbook.API.csproj|f:\\repos\\nakedbyte\\samples\\pwa-samples\\logbook.api\\logbook.api\\aircraft.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{14ED0C7B-05ED-41BC-A829-C10E5EF924F1}|Logbook.API\\Logbook.API.csproj|solutionrelative:logbook.api\\aircraft.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{14ED0C7B-05ED-41BC-A829-C10E5EF924F1}|Logbook.API\\Logbook.API.csproj|f:\\repos\\nakedbyte\\samples\\pwa-samples\\logbook.api\\logbook.api\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{14ED0C7B-05ED-41BC-A829-C10E5EF924F1}|Logbook.API\\Logbook.API.csproj|solutionrelative:logbook.api\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{14ED0C7B-05ED-41BC-A829-C10E5EF924F1}|Logbook.API\\Logbook.API.csproj|f:\\repos\\nakedbyte\\samples\\pwa-samples\\logbook.api\\logbook.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{14ED0C7B-05ED-41BC-A829-C10E5EF924F1}|Logbook.API\\Logbook.API.csproj|solutionrelative:logbook.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{14ED0C7B-05ED-41BC-A829-C10E5EF924F1}|Logbook.API\\Logbook.API.csproj|f:\\repos\\nakedbyte\\samples\\pwa-samples\\logbook.api\\logbook.api\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{14ED0C7B-05ED-41BC-A829-C10E5EF924F1}|Logbook.API\\Logbook.API.csproj|solutionrelative:logbook.api\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{14ED0C7B-05ED-41BC-A829-C10E5EF924F1}|Logbook.API\\Logbook.API.csproj|f:\\repos\\nakedbyte\\samples\\pwa-samples\\logbook.api\\logbook.api\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{14ED0C7B-05ED-41BC-A829-C10E5EF924F1}|Logbook.API\\Logbook.API.csproj|solutionrelative:logbook.api\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{14ED0C7B-05ED-41BC-A829-C10E5EF924F1}|Logbook.API\\Logbook.API.csproj|f:\\repos\\nakedbyte\\samples\\pwa-samples\\logbook.api\\logbook.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{14ED0C7B-05ED-41BC-A829-C10E5EF924F1}|Logbook.API\\Logbook.API.csproj|solutionrelative:logbook.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "WeatherForecast.cs",
+              "DocumentMoniker": "F:\\Repos\\nakedbyte\\samples\\pwa-samples\\logbook.api\\Logbook.API\\WeatherForecast.cs",
+              "RelativeDocumentMoniker": "Logbook.API\\WeatherForecast.cs",
+              "ToolTip": "F:\\Repos\\nakedbyte\\samples\\pwa-samples\\logbook.api\\Logbook.API\\WeatherForecast.cs",
+              "RelativeToolTip": "Logbook.API\\WeatherForecast.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T02:29:46.397Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DataContext.cs",
+              "DocumentMoniker": "F:\\Repos\\nakedbyte\\samples\\pwa-samples\\logbook.api\\Logbook.API\\DataContext.cs",
+              "RelativeDocumentMoniker": "Logbook.API\\DataContext.cs",
+              "ToolTip": "F:\\Repos\\nakedbyte\\samples\\pwa-samples\\logbook.api\\Logbook.API\\DataContext.cs",
+              "RelativeToolTip": "Logbook.API\\DataContext.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABIAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T02:29:46.562Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Aircraft.cs",
+              "DocumentMoniker": "F:\\Repos\\nakedbyte\\samples\\pwa-samples\\logbook.api\\Logbook.API\\Aircraft.cs",
+              "RelativeDocumentMoniker": "Logbook.API\\Aircraft.cs",
+              "ToolTip": "F:\\Repos\\nakedbyte\\samples\\pwa-samples\\logbook.api\\Logbook.API\\Aircraft.cs",
+              "RelativeToolTip": "Logbook.API\\Aircraft.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T02:29:46.565Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AircraftController.cs",
+              "DocumentMoniker": "F:\\Repos\\nakedbyte\\samples\\pwa-samples\\logbook.api\\Logbook.API\\Controllers\\AircraftController.cs",
+              "RelativeDocumentMoniker": "Logbook.API\\Controllers\\AircraftController.cs",
+              "ToolTip": "F:\\Repos\\nakedbyte\\samples\\pwa-samples\\logbook.api\\Logbook.API\\Controllers\\AircraftController.cs",
+              "RelativeToolTip": "Logbook.API\\Controllers\\AircraftController.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAqwCEAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T02:29:46.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "F:\\Repos\\nakedbyte\\samples\\pwa-samples\\logbook.api\\Logbook.API\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "Logbook.API\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "F:\\Repos\\nakedbyte\\samples\\pwa-samples\\logbook.api\\Logbook.API\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "Logbook.API\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T02:29:46.569Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\Repos\\nakedbyte\\samples\\pwa-samples\\logbook.api\\Logbook.API\\Program.cs",
+              "RelativeDocumentMoniker": "Logbook.API\\Program.cs",
+              "ToolTip": "F:\\Repos\\nakedbyte\\samples\\pwa-samples\\logbook.api\\Logbook.API\\Program.cs",
+              "RelativeToolTip": "Logbook.API\\Program.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T02:29:46.571Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "F:\\Repos\\nakedbyte\\samples\\pwa-samples\\logbook.api\\Logbook.API\\Dockerfile",
+              "RelativeDocumentMoniker": "Logbook.API\\Dockerfile",
+              "ToolTip": "F:\\Repos\\nakedbyte\\samples\\pwa-samples\\logbook.api\\Logbook.API\\Dockerfile",
+              "RelativeToolTip": "Logbook.API\\Dockerfile",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-05-01T02:29:46.573Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
