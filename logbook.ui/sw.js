@@ -30,6 +30,41 @@ self.addEventListener('notificationclick', function(event) {
     event.notification.close();
 });
 
+self.addEventListener('push', function(event) {
+    console.log('[SW]: Service worker push event received...', event);
+
+
+    var data = { title: 'New!', content: 'Something new happened!' };
+    if(event.data) {
+        data = JSON.parse(event.data.text());
+    }
+console.log(data);
+    const         options = {
+        body: data.content,
+        icon: 'images/icons/icon-96x96.png',
+        image: 'images/icons/icon-284x284.png',
+        dir: 'ltr',
+        lang: 'en-US', // BCP 47
+        vibrate: [100, 50, 200],
+        badge: 'images/icons/icon-96x96.png',
+        tag: 'confirm-notification',
+        renotify: true,
+        //only works via service worker
+        actions: [
+        { action: 'confirm', title: 'Okay', icon: 'images/icons/icon-96x96.png' },
+        { action: 'cancel', title: 'Cancel', icon: 'images/icons/icon-96x96.png' }
+        ]
+    };
+
+    event.waitUntil(
+        self.registration.showNotification(data.title, options)
+    );
+    
+    //do not wait for page-reload
+    //return self.skipWaiting();
+});
+
+
 self.addEventListener('install', function(event) {
     console.log('[SW]: Service worker installing...', event);
     event.waitUntil(
@@ -179,3 +214,5 @@ self.addEventListener('sync', function(event) {
         };
 
 });
+
+

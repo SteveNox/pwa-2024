@@ -223,30 +223,30 @@ class aircraftPage {
         tag: 'confirm-notification',
         renotify: true,
         //only works via service worker
-        // actions: [
-        //   { action: 'confirm', title: 'Okay', icon: 'images/icons/icon-96x96.png' },
-        //   { action: 'cancel', title: 'Cancel', icon: 'images/icons/icon-96x96.png' }
-        // ]
+        actions: [
+          { action: 'confirm', title: 'Okay', icon: 'images/icons/icon-96x96.png' },
+          { action: 'cancel', title: 'Cancel', icon: 'images/icons/icon-96x96.png' }
+        ]
       };
 
-      // if ('serviceWorker' in navigator) {
-      //   navigator.serviceWorker.ready
-      //     .then(sw => {
-      //       sw.showNotification('Successfully subscribed!', options);
-      //     });
-      // }
-
-      if ("Notification" in window) {
-        if (Notification.permission === "granted") {
-          new Notification('Successfully subscribed!', options);
-        } else if (Notification.permission !== "denied") {
-          Notification.requestPermission().then(permission => {
-            if (permission === "granted") {
-              new Notification('Successfully subscribed!', options);
-            }
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.ready
+          .then(sw => {
+            sw.showNotification('Successfully subscribed!', options);
           });
-        }
       }
+
+      // if ("Notification" in window) {
+      //   if (Notification.permission === "granted") {
+      //     new Notification('Successfully subscribed!', options);
+      //   } else if (Notification.permission !== "denied") {
+      //     Notification.requestPermission().then(permission => {
+      //       if (permission === "granted") {
+      //         new Notification('Successfully subscribed!', options);
+      //       }
+      //     });
+      //   }
+      // }
 
   }
   
@@ -260,21 +260,22 @@ class aircraftPage {
     navigator.serviceWorker.ready
       .then(function(sw) {
         swRegistration = sw;
-        sw.pushManager.getSubscription();
+        return swRegistration.pushManager.getSubscription();
       })
       .then(function(subscription) {
-        if (subscription == undefined) {
-          var vapidPublicKey = 'BOrZCYyuGfkBSMr1PKzYi-3tHyY-6U9YpV8XlXKpSLDDdk7hsPeKQye6hgtFi_LuyoXpmcUaZsINQ-I8FJqlhj0';
+        if (subscription === null) {
+          var vapidPublicKey = 'BFOTzhZHGeTcfb1RHWbHsJ6QArYb6TVFplPDoa-0oMoejmHe317rxngcSLFq7Fsfd3Nm3qWl2mcIS8053cPo62E';
           var convertedVapidPublicKey = urlBase64ToUint8Array(vapidPublicKey);
 
           swRegistration.pushManager.subscribe({
             userVisibleOnly: true,
             applicationServerKey: convertedVapidPublicKey
           }).then(function(newSubscription) {
-            console.log(newSubscription);
+            console.log(JSON.stringify(newSubscription));
           });
         } else {
           //use existing subscription
+          console.log(JSON.stringify(subscription));
         }
       });
     };
