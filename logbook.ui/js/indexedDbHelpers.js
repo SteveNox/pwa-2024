@@ -1,7 +1,9 @@
 var dbPromise = idb.open('testStore', 1, function(db) {
     if (!db.objectStoreNames.contains('apiData')) {
-        db.createObjectStore('apiData', {keyPath: 'date'});
+        db.createObjectStore('aircraft-cache', {keyPath: 'id'});
         db.createObjectStore('myData', {keyPath: 'name'});
+        db.createObjectStore('aircraft-create', {keyPath: 'id'});
+        db.createObjectStore('aircraft-delete', {keyPath: 'id'});
     }
 });
 
@@ -39,6 +41,15 @@ function readAllData(st) {
             var store = tx.objectStore(st);
             return store.getAll();
         });
+}
+
+function readItemFromData(st, id) {
+    return dbPromise
+        .then(function(db) {
+            var tx = db.transaction(st, 'readonly');
+            var store = tx.objectStore(st);
+            return store.get(id);
+        })
 }
 
 function deleteItemFromData(st, id) {
