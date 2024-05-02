@@ -1,7 +1,7 @@
 importScripts('js/idb.js');
 importScripts('js/indexedDbHelpers.js');
 
-const cache_version = '-v1';
+const cache_version = '-v2';
 const staticCacheName = 'static' + cache_version;
 const dynamicCacheName = 'dynamic' + cache_version;
 
@@ -35,11 +35,14 @@ self.addEventListener('push', function(event) {
 
 
     var data = { title: 'New!', content: 'Something new happened!' };
+
     if(event.data) {
         data = JSON.parse(event.data.text());
     }
-console.log(data);
-    const         options = {
+
+    console.log(data);
+    
+    const options = {
         body: data.content,
         icon: 'images/icons/icon-96x96.png',
         image: 'images/icons/icon-284x284.png',
@@ -146,6 +149,7 @@ self.addEventListener('fetch', function(event) {
 
 self.addEventListener('sync', function(event) {
     console.log('[SW]: Service worker syncing...', event);
+    
     if(event.tag === 'sync-new-aircraft') {
         console.log('[SW]: Sync new aircraft...', event);
 
@@ -167,6 +171,8 @@ self.addEventListener('sync', function(event) {
                             console.log(response);
                             if(response.ok) {
                                 deleteItemFromData('aircraft-create', data[key].id);
+
+                                //throws event to notify clients about sync completion
                                 self.clients.matchAll().then(function(clients) {
                                     clients.forEach(function(client) {
                                         client.postMessage({
@@ -174,7 +180,8 @@ self.addEventListener('sync', function(event) {
                                             data: data[key]
                                         });
                                     });
-                                });                                
+                                });     
+
                             }
                         })
                         .catch(function(err) {

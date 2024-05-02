@@ -23,6 +23,9 @@
                     </li>
                 </ul>
                 <button class="btn btn-outline-primary" onclick="page.askForNotificationPermission()">Notification</button>
+                <button class="btn btn-outline-primary" onclick="page.initializeLocation()">Location</button>
+                <button class="btn btn-outline-primary" onclick="page.initializeMedia()">Media</button>
+
             </div>
         </div>
     </nav>    
@@ -58,6 +61,21 @@
         <div class="row">    
             <table class="table" id="aircraftTable">
 
+        </div>
+
+        <div class="row">
+            <video id="player" autoplay></video>
+        </div>
+        <div class="row">
+            <canvas id="canvas" width="320px" height="240px"></canvas>
+        </div>
+        <div class="row">
+            <button class="btn btn-primary" id="capture-button">Take Photo</button>
+        </div>
+        <div class="row">
+            <div id="pick-image">
+                <input type="file" id="image-picker" accept="image/*">
+            </div>
         </div>
     </div>
 </div>
