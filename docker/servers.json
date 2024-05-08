@@ -3,7 +3,7 @@
         "1": {
             "Name": "localhost-test",
             "Group": "Servers",
-            "Host": "192.168.1.194",
+            "Host": "10.149.10.232",
             "Port": 5532,
             "MaintenanceDB": "postgres",
             "Username": "postgres",
